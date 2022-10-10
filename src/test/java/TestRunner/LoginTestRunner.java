@@ -2,6 +2,7 @@ package TestRunner;
 
 import Setup.Setup;
 
+import org.junit.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import utils.Utils;
@@ -18,7 +19,8 @@ public class LoginTestRunner extends Setup {
         loginPage = new LoginPage(driver);
         utils = new Utils();
         utils.getUserCreds(0);
-
+        String accountName = loginPage.doLogin(utils.getEmail(), utils.getPassword());
+        Assert.assertEquals("mh.hassann19@gmail.com",accountName);
 
     }
 }
