@@ -24,7 +24,7 @@ public class LoginPage {
     @FindBy(xpath = "//input[@value='Log in']")
     public WebElement loginBtn;
     @FindBy(xpath = "//a[contains(@class, 'ico-logout')]")
-    public WebElement LogOut;
+    public WebElement logOut;
 
 
     public String doLogin(String email, String password) throws InterruptedException {
@@ -41,7 +41,7 @@ public class LoginPage {
         account.click();
         Thread.sleep(5000);
         String heading = driver.findElement(By.xpath("//a[@class='ico-account']")).getText();
-        LogOut.click();
+        logOut.click();
         return heading;
     }
     public String doLoginWithWrongPassword(String email, String password) throws InterruptedException {
@@ -73,7 +73,22 @@ public class LoginPage {
         return alertMessage;
     }
 
-
+    public String Login(String email, String password) throws InterruptedException {
+        account.click();
+        Thread.sleep(5000);
+        DLoginBtn.click();
+        Thread.sleep(5000);
+        usernameBox.sendKeys(email);
+        Thread.sleep(5000);
+        passwordBox.sendKeys(password);
+        Thread.sleep(5000);
+        loginBtn.click();
+        Thread.sleep(5000);
+        account.click();
+        Thread.sleep(5000);
+        String heading = driver.findElement(By.xpath("//a[@class='ico-account']")).getText();
+        return heading;
+    }
 
 
 }
