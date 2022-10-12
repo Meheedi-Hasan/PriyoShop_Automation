@@ -23,4 +23,22 @@ public class LoginTestRunner extends Setup {
         Assert.assertEquals("mh.hassann19@gmail.com",accountName);
 
     }
+    @Test(priority = 2)
+    public void doLoginWithWrongPassword() throws IOException, ParseException, InterruptedException {
+        driver.get("https://priyoshop.com/");
+        loginPage = new LoginPage(driver);
+        utils = new Utils();
+        utils.getUserCreds(1);
+        String txt = loginPage.doLoginWithWrongPassword(utils.getEmail(), utils.getPassword());
+        Assert.assertEquals("The credentials provided are incorrect",txt);
+    }
+    @Test(priority = 3)
+    public void doLoginWithWrongEmail() throws IOException, ParseException, InterruptedException {
+        driver.get("https://priyoshop.com/");
+        loginPage = new LoginPage(driver);
+        utils = new Utils();
+        utils.getUserCreds(2);
+        String txt = loginPage.doLoginWithWrongEmail(utils.getEmail(), utils.getPassword());
+        Assert.assertEquals("No customer account found",txt);
+    }
 }
