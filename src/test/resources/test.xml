@@ -1,0 +1,13 @@
+<suite thread-count="1" verbose="1" name="Priyo shop Automation">
+    <test name="Priyo shop  portal signup">
+        <classes>
+            <class name="TestRunner.LoginTestRunner"/>
+        </classes>
+    </test>
+    <test name="Priyo shop  portal login">
+        <classes>
+            <class name="TestRunner.SearchTestRunner"/>
+        </classes>
+    </test>
+
+</suite>
