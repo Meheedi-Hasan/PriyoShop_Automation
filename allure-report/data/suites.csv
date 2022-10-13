@@ -1,5 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Oct 13 14:41:41 BDT 2022","Thu Oct 13 14:41:59 BDT 2022","17414","Priyo shop Automation","Priyo shop  portal signup","TestRunner.LoginTestRunner","TestRunner.LoginTestRunner","doLoginWithWrongEmail","doLoginWithWrongEmail",""
-"passed","Thu Oct 13 14:42:01 BDT 2022","Thu Oct 13 14:43:26 BDT 2022","84931","Priyo shop Automation","Priyo shop  portal login","TestRunner.SearchTestRunner","TestRunner.SearchTestRunner","login","login",""
-"passed","Thu Oct 13 14:40:12 BDT 2022","Thu Oct 13 14:41:15 BDT 2022","62307","Priyo shop Automation","Priyo shop  portal signup","TestRunner.LoginTestRunner","TestRunner.LoginTestRunner","doLogin","doLogin",""
-"broken","Thu Oct 13 14:41:15 BDT 2022","Thu Oct 13 14:41:41 BDT 2022","26742","Priyo shop Automation","Priyo shop  portal signup","TestRunner.LoginTestRunner","TestRunner.LoginTestRunner","doLoginWithWrongPassword","doLoginWithWrongPassword",""

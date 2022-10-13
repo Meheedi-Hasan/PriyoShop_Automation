@@ -22,8 +22,8 @@ public class SearchTestRunner extends Setup {
         loginPage = new LoginPage(driver);
         utils = new Utils();
         utils.getUserCreds(0);
-        String accountName = loginPage.login(utils.getEmail(), utils.getPassword());
-        Assert.assertEquals("mh.hassann19@gmail.com",accountName);
+        loginPage.login(utils.getEmail(), utils.getPassword());
+
     }
     @Test(priority = 5)
     public void doSearch() throws InterruptedException {

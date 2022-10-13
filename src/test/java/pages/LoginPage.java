@@ -75,21 +75,17 @@ public class LoginPage {
         return alertMessage;
     }
 
-    public String login(String email, String password) throws InterruptedException {
+    public void login(String email, String password) throws InterruptedException {
         account.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         DLoginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         usernameBox.sendKeys(email);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         passwordBox.sendKeys(password);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         loginBtn.click();
-        Thread.sleep(5000);
-        account.click();
-        Thread.sleep(5000);
-        String heading = driver.findElement(By.xpath("//a[@class='ico-account']")).getText();
-        return heading;
+        Thread.sleep(2000);
     }
 
 

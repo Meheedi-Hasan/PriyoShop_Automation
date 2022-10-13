@@ -12,7 +12,7 @@ public class SearchPage {
     public WebElement searchField;
     @FindBy(xpath = "//input[@value = 'Search']")
     public WebElement searchBtn;
-    @FindBy(xpath = "//a[normalize-space()=\\'Colorful Polo Shirt for Men-RB (E)\\']")
+    @FindBy(xpath = "//a[normalize-space()='Colorful Polo Shirt for Men-RB (E)']")
     public WebElement test1;
 
     public SearchPage(WebDriver driver) {
