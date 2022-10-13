@@ -22,11 +22,13 @@ public class SearchTestRunner extends Setup {
         loginPage = new LoginPage(driver);
         utils = new Utils();
         utils.getUserCreds(0);
-        String accountName = loginPage.Login(utils.getEmail(), utils.getPassword());
+        String accountName = loginPage.login(utils.getEmail(), utils.getPassword());
         Assert.assertEquals("mh.hassann19@gmail.com",accountName);
     }
-
-//    public void doSearch(){
-//
-//    }
+    @Test(priority = 5)
+    public void doSearch() throws InterruptedException {
+        searchPage = new SearchPage(driver);
+        String text2 = searchPage.doSearch();
+        Assert.assertEquals(text2,"Colorful Polo Shirt for Men-RB (E)");
+    }
 }

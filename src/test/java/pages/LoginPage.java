@@ -75,7 +75,7 @@ public class LoginPage {
         return alertMessage;
     }
 
-    public String Login(String email, String password) throws InterruptedException {
+    public String login(String email, String password) throws InterruptedException {
         account.click();
         Thread.sleep(5000);
         DLoginBtn.click();
