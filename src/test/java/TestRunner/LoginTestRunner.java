@@ -3,7 +3,6 @@ package TestRunner;
 import Setup.Setup;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import utils.Utils;
@@ -14,7 +13,6 @@ import java.io.IOException;
 public class LoginTestRunner extends Setup {
     LoginPage loginPage;
     Utils utils = new Utils();
-
     @Test(priority = 1)
     public void doLogin() throws IOException, ParseException, InterruptedException {
         driver.get("https://priyoshop.com/");
@@ -43,5 +41,4 @@ public class LoginTestRunner extends Setup {
         String txt = loginPage.doLoginWithWrongEmail(utils.getEmail(), utils.getPassword());
         Assert.assertEquals("No customer account found",txt);
     }
-
 }

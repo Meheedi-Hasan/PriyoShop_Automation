@@ -29,46 +29,48 @@ public class LoginPage {
 
     public String doLogin(String email, String password) throws InterruptedException {
         account.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         DLoginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         usernameBox.sendKeys(email);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         passwordBox.sendKeys(password);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         loginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         account.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         String heading = driver.findElement(By.xpath("//a[@class='ico-account']")).getText();
         logOut.click();
         return heading;
     }
+
+
     public String doLoginWithWrongPassword(String email, String password) throws InterruptedException {
         account.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         DLoginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         usernameBox.sendKeys(email);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         passwordBox.sendKeys(password);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         loginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         String alertMessage = driver.findElement(By.xpath("//li[normalize-space()= 'The credentials provided are incorrect']")).getText();
         return alertMessage;
     }
     public String doLoginWithWrongEmail(String email, String password) throws InterruptedException {
         account.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         DLoginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         usernameBox.sendKeys(email);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         passwordBox.sendKeys(password);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         loginBtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         String alertMessage = driver.findElement(By.xpath("//li[normalize-space()= 'No customer account found']")).getText();
         return alertMessage;
     }
