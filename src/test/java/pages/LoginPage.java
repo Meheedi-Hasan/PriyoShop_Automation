@@ -52,11 +52,11 @@ public class LoginPage {
         DLoginBtn.click();
         Thread.sleep(2000);
         usernameBox.sendKeys(email);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         passwordBox.sendKeys(password);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         loginBtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         String alertMessage = driver.findElement(By.xpath("//li[normalize-space()= 'The credentials provided are incorrect']")).getText();
         return alertMessage;
     }
@@ -70,7 +70,7 @@ public class LoginPage {
         passwordBox.sendKeys(password);
         Thread.sleep(2000);
         loginBtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         String alertMessage = driver.findElement(By.xpath("//li[normalize-space()= 'No customer account found']")).getText();
         return alertMessage;
     }

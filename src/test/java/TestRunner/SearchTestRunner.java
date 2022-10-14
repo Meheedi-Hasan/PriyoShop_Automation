@@ -31,4 +31,31 @@ public class SearchTestRunner extends Setup {
         String text2 = searchPage.doSearch();
         Assert.assertEquals(text2,"Colorful Polo Shirt for Men-RB (E)");
     }
+    @Test(priority = 6)
+    public void addToCartWithZeroValue() throws InterruptedException {
+
+        searchPage = new SearchPage(driver);
+        String txt = searchPage.addToCartWithZeroValue();
+        Assert.assertEquals(txt,"Quantity should be positive");
+//        try {
+//
+//
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+    }
+    @Test(priority = 7)
+    public void addToCartWithValidValue() throws InterruptedException {
+        searchPage = new SearchPage(driver);
+        String txt = searchPage.addToCartWithValidInput();
+        Assert.assertEquals(txt,"Tk 2,000.00");
+//        try {
+//
+//
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+    }
 }
