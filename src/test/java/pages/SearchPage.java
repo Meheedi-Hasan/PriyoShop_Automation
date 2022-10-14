@@ -22,6 +22,8 @@ public class SearchPage {
     public WebElement radioSizeBtn;
     @FindBy(xpath = "//input[@class='qty-input'][contains(@id,'EnteredQuantity')]")
     public WebElement qtyBox;
+    @FindBy(id = "add-add-to-cart-button-143465")
+    public WebElement cartBtn;
     @FindBy(xpath = "//a[@class='cart-trigger']")
     public WebElement cartBox;
     @FindBy(xpath = "//span[@class='product-subtotal']")
@@ -43,12 +45,17 @@ public class SearchPage {
         return txt;
 
     }
-    public String addToCartWithZeroValue() throws InterruptedException {
+    public String addToCartWithZeroInput() throws InterruptedException {
         imgBox.click();
         Thread.sleep(2000);
         radioSizeBtn.click();
         Thread.sleep(2000);
+        qtyBox.clear();
+        Thread.sleep(2000);
         qtyBox.sendKeys("0");
+        Thread.sleep(2000);
+        cartBtn.click();
+        Thread.sleep(2000);
         Alert alert = driver.switchTo().alert();
         String alertMessage= driver.switchTo().alert().getText();
         alert.accept();
@@ -57,8 +64,13 @@ public class SearchPage {
     }
     public String addToCartWithValidInput() throws InterruptedException {
         //radioSizeBtn.click();
-        //Thread.sleep(2000);
+        Thread.sleep(2000);
+        qtyBox.clear();
+        Thread.sleep(2000);
         qtyBox.sendKeys("2");
+        Thread.sleep(2000);
+        cartBtn.click();
+        Thread.sleep(2000);
         cartBox.click();
         String txt = totalPrice.getText();
         return txt;

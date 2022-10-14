@@ -32,10 +32,10 @@ public class SearchTestRunner extends Setup {
         Assert.assertEquals(text2,"Colorful Polo Shirt for Men-RB (E)");
     }
     @Test(priority = 6)
-    public void addToCartWithZeroValue() throws InterruptedException {
+    public void addToCartWithZeroInput() throws InterruptedException {
 
         searchPage = new SearchPage(driver);
-        String txt = searchPage.addToCartWithZeroValue();
+        String txt = searchPage.addToCartWithZeroInput();
         Assert.assertEquals(txt,"Quantity should be positive");
 //        try {
 //
@@ -46,7 +46,7 @@ public class SearchTestRunner extends Setup {
 //        }
     }
     @Test(priority = 7)
-    public void addToCartWithValidValue() throws InterruptedException {
+    public void addToCartWithValidInput() throws InterruptedException {
         searchPage = new SearchPage(driver);
         String txt = searchPage.addToCartWithValidInput();
         Assert.assertEquals(txt,"Tk 2,000.00");
