@@ -2,7 +2,6 @@ package TestRunner;
 
 import Setup.Setup;
 import org.json.simple.parser.ParseException;
-//import org.junit.Assert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -33,20 +32,19 @@ public class SearchTestRunner extends Setup {
         Assert.assertEquals(text2, "Colorful Polo Shirt for Men-RB (E)");
     }
 
-    @Test(priority = 6)
-    public void addToCartWithZeroInput() throws InterruptedException {
 
+    public void addToCartWithZeroInput() throws InterruptedException {
         searchPage = new SearchPage(driver);
         String txt = searchPage.addToCartWithZeroInput();
         Assert.assertEquals(txt, "Quantity should be positive");
 
     }
 
-    @Test(priority = 7)
+
     public void addToCartWithValidInput() throws InterruptedException {
         searchPage = new SearchPage(driver);
         String txt = searchPage.addToCartWithValidInput();
-        Assert.assertEquals(txt, "2");
+        Assert.assertEquals(txt, "Tk 2,000.00");
     }
 
 }
