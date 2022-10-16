@@ -3,15 +3,16 @@ package TestRunner;
 import Setup.Setup;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.SearchPage;
+import pages.CartPage;
 import utils.Utils;
 
 import java.io.IOException;
 
-public class SearchTestRunner extends Setup {
-    SearchPage searchPage;
+public class CartTestRunner extends Setup {
+    CartPage cartPage;
     LoginPage loginPage;
     Utils utils = new Utils();
 
@@ -27,24 +28,27 @@ public class SearchTestRunner extends Setup {
 
     @Test(priority = 5)
     public void doSearch() throws InterruptedException {
-        searchPage = new SearchPage(driver);
-        String text2 = searchPage.doSearch();
+        cartPage = new CartPage(driver);
+        String text2 = cartPage.doSearch();
         Assert.assertEquals(text2, "Colorful Polo Shirt for Men-RB (E)");
     }
-
-
-    public void addToCartWithZeroInput() throws InterruptedException {
-        searchPage = new SearchPage(driver);
-        String txt = searchPage.addToCartWithZeroInput();
+    @Test(priority = 6)
+    public void addToCartWithInvalidInput() throws InterruptedException {
+        cartPage = new CartPage(driver);
+        String txt = cartPage.addToCartWithInvalidInput();
         Assert.assertEquals(txt, "Quantity should be positive");
-
     }
-
-
+    @Test(priority = 7)
     public void addToCartWithValidInput() throws InterruptedException {
-        searchPage = new SearchPage(driver);
-        String txt = searchPage.addToCartWithValidInput();
+        cartPage = new CartPage(driver);
+        String txt = cartPage.addToCartWithValidInput();
         Assert.assertEquals(txt, "Tk 2,000.00");
+    }
+    @Test(priority = 8)
+    public void deleteProduct() throws InterruptedException {
+        cartPage = new CartPage(driver);
+        String txt = cartPage.deleteProduct();
+        Assert.assertEquals(txt, "Your Shopping Cart is empty!");
     }
 
 }

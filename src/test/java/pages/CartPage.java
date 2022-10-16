@@ -1,13 +1,12 @@
 package pages;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SearchPage {
+public class CartPage {
     WebDriver driver;
     @FindBy(css = ".search-box-text")
     public WebElement searchField;
@@ -22,23 +21,24 @@ public class SearchPage {
     public WebElement radioSizeBtn;
     @FindBy(xpath = "//input[@class='qty-input'][contains(@id,'EnteredQuantity')]")
     public WebElement qtyBox;
-    @FindBy(xpath = "//a[@class='cart-trigger']")
-    public WebElement cartBox;
     @FindBy(id = "add-add-to-cart-button-143465")
     public WebElement cartBtn;
+
     @FindBy(xpath = "//span[@class='product-subtotal']")
     public WebElement totalPrice;
     @FindBy(xpath = "//input[contains(@class,'qty-input valid')]")
     public WebElement qtybox2;
-
-    @FindBy(className = "qty-input valid")
-    public WebElement qtyasrt;
-    @FindBy(className = "//a[@class='item-remove-button']")
+    @FindBy(css = "#add-add-to-cart-button-143465")
+    public WebElement cartBtn2;
+    @FindBy(css = "#flyout-cart")
+    public WebElement cartBox2;
+    @FindBy(css = ".fa.fa-trash")
     public WebElement dltBtn;
+    @FindBy(css = ".no-data")
+    public WebElement dltAsrt;
 
 
-
-    public SearchPage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -51,9 +51,8 @@ public class SearchPage {
         Thread.sleep(2000);
         String txt = test1.getText();
         return txt;
-
     }
-    public String addToCartWithZeroInput() throws InterruptedException {
+    public String addToCartWithInvalidInput() throws InterruptedException {
         imgBox.click();
         Thread.sleep(2000);
         radioSizeBtn.click();
@@ -66,15 +65,23 @@ public class SearchPage {
         String alertMessage= driver.switchTo().alert().getText();
         alert.accept();
         return alertMessage;
-
     }
     public String addToCartWithValidInput() throws InterruptedException {
         qtybox2.clear();
+        Thread.sleep(1000);
         qtybox2.sendKeys("2");
-        cartBtn.click();
-        cartBox.click();
+        Thread.sleep(1000);
+        cartBtn2.click();
+        Thread.sleep(1000);
+        cartBox2.click();
+        Thread.sleep(1000);
         String txt = totalPrice.getText();
-        dltBtn.click();
         return txt;
     }
+    public String deleteProduct(){
+        dltBtn.click();
+        String txt = dltAsrt.getText();
+        return txt;
+    }
+
 }
