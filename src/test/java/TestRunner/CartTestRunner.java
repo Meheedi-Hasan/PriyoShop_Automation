@@ -4,6 +4,8 @@ import Setup.Setup;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.CartPage;
@@ -16,7 +18,7 @@ public class CartTestRunner extends Setup {
     LoginPage loginPage;
     Utils utils = new Utils();
 
-    @Test(priority = 4)
+    @BeforeMethod
     public void login() throws IOException, ParseException, InterruptedException {
         driver.get("https://priyoshop.com/");
         loginPage = new LoginPage(driver);
@@ -26,29 +28,36 @@ public class CartTestRunner extends Setup {
 
     }
 
-    @Test(priority = 5)
+    @Test(priority = 4)
     public void doSearch() throws InterruptedException {
         cartPage = new CartPage(driver);
         String text2 = cartPage.doSearch();
         Assert.assertEquals(text2, "Colorful Polo Shirt for Men-RB (E)");
     }
-    @Test(priority = 6)
+    @Test(priority = 5)
     public void addToCartWithInvalidInput() throws InterruptedException {
         cartPage = new CartPage(driver);
+        cartPage.doSearch();
         String txt = cartPage.addToCartWithInvalidInput();
         Assert.assertEquals(txt, "Quantity should be positive");
     }
-    @Test(priority = 7)
+    @Test(priority = 6)
     public void addToCartWithValidInput() throws InterruptedException {
         cartPage = new CartPage(driver);
+        cartPage.doSearch();
         String txt = cartPage.addToCartWithValidInput();
         Assert.assertEquals(txt, "Tk 2,000.00");
     }
-    @Test(priority = 8)
+    @Test(priority = 7)
     public void deleteProduct() throws InterruptedException {
         cartPage = new CartPage(driver);
         String txt = cartPage.deleteProduct();
         Assert.assertEquals(txt, "Your Shopping Cart is empty!");
+    }
+    @AfterMethod
+    public void logout() throws InterruptedException {
+        loginPage = new LoginPage(driver);
+        loginPage.logout();
     }
 
 }

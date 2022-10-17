@@ -26,12 +26,12 @@ public class CartPage {
 
     @FindBy(xpath = "//span[@class='product-subtotal']")
     public WebElement totalPrice;
-    @FindBy(xpath = "//input[contains(@class,'qty-input valid')]")
-    public WebElement qtybox2;
+//    @FindBy(xpath = "//input[contains(@class,'qty-input valid')]")
+//    public WebElement qtybox2;
     @FindBy(css = "#add-add-to-cart-button-143465")
     public WebElement cartBtn2;
     @FindBy(css = "#flyout-cart")
-    public WebElement cartBox2;
+    public WebElement cartBox;
     @FindBy(css = ".fa.fa-trash")
     public WebElement dltBtn;
     @FindBy(css = ".no-data")
@@ -46,39 +46,45 @@ public class CartPage {
 
     public String doSearch() throws InterruptedException {
         searchField.sendKeys("Shirt");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         searchBtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         String txt = test1.getText();
         return txt;
     }
     public String addToCartWithInvalidInput() throws InterruptedException {
         imgBox.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         radioSizeBtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         qtyBox.clear();
         qtyBox.sendKeys("0");
         cartBtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Alert alert = driver.switchTo().alert();
         String alertMessage= driver.switchTo().alert().getText();
         alert.accept();
         return alertMessage;
     }
     public String addToCartWithValidInput() throws InterruptedException {
-        qtybox2.clear();
+        imgBox.click();
         Thread.sleep(1000);
-        qtybox2.sendKeys("2");
+        radioSizeBtn.click();
+        Thread.sleep(1000);
+        qtyBox.clear();
+        Thread.sleep(1000);
+        qtyBox.sendKeys("2");
         Thread.sleep(1000);
         cartBtn2.click();
         Thread.sleep(1000);
-        cartBox2.click();
+        cartBox.click();
         Thread.sleep(1000);
         String txt = totalPrice.getText();
         return txt;
     }
-    public String deleteProduct(){
+    public String deleteProduct() throws InterruptedException {
+        cartBox.click();
+        Thread.sleep(1000);
         dltBtn.click();
         String txt = dltAsrt.getText();
         return txt;

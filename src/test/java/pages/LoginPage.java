@@ -87,5 +87,10 @@ public class LoginPage {
         loginBtn.click();
         Thread.sleep(2000);
     }
+    public void logout() throws InterruptedException {
+        account.click();
+        Thread.sleep(2000);
+        logOut.click();
+    }
 
 }
