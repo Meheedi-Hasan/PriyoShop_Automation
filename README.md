@@ -37,10 +37,11 @@ gradle clean test
 allure generate allure-results --clean -o allure-report
 allure serve allure-results
 ```
+<!--
 ### Below is my allure overview report:
-
-![Allure overview report](https://drive.google.com/file/d/1FQUHhDi5miRXeNQJKiOh5fUQqkOFMYG5/view?usp=sharing)
+  <img src="https://drive.google.com/file/d/1FQUHhDi5miRXeNQJKiOh5fUQqkOFMYG5/view?usp=sharing" alt="alllure overview report" width="350">
 
 ### Here are the suites of this project:
 
 ![Suites of this project](https://drive.google.com/file/d/1E9kL-TZ9f2uohsWfaie8CEMTXsiw8eEU/view?usp=sharing)
+-->
